@@ -3,7 +3,7 @@
 1password-cli@beta
 1password@beta
 4k-video-downloader
-4k-video-downloaderplus
+4k-video-downloader+
 4k-youtube-to-mp3
 8x8-work
 a-better-finder-attributes
@@ -29,6 +29,7 @@ airtame
 akiflow
 alcom
 alex313031-thorium
+alfaview
 alfred
 aliworkbench
 alt-tab
@@ -84,6 +85,7 @@ bitwarden
 bitwig-studio
 blender
 blender@lts
+blitz-gg
 blockbench
 blockstream-green
 bloop
@@ -358,7 +360,8 @@ ibackup-viewer
 ibkr
 ibm-cloud-cli
 idrive
-iina-plus
+igv
+iina+
 imazing
 imhex
 inkdown
@@ -421,7 +424,7 @@ lingon-x
 little-snitch
 live-home-3d
 lm-studio
-logi-options-plus
+logi-options+
 logitech-g-hub
 logos
 logseq
@@ -440,7 +443,6 @@ macupdater
 macwhisper
 maestral
 mailbutler
-mambaforge
 marked
 mcreator
 media-center
@@ -498,6 +500,7 @@ morgen
 mountain-duck
 mp3tag
 mqttx
+msty
 mudlet
 mullvad-browser
 mullvadvpn
@@ -541,6 +544,7 @@ ocenaudio
 okta-advanced-server-access
 ollama
 ollamac
+olympus
 omnifocus
 omnigraffle
 onedrive
@@ -705,6 +709,7 @@ setapp
 sf
 sfm
 shadow
+shadow-bot
 shadow@beta
 shapr3d
 shattered-pixel-dungeon
@@ -872,6 +877,7 @@ whatsapp@beta
 whatsapp@legacy
 whisky
 wing-personal
+wins
 wondershare-uniconverter
 wordpresscom-studio
 workflowy

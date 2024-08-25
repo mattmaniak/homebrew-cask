@@ -1,6 +1,6 @@
 cask "cakebrewjs" do
-  version "2.2.6"
-  sha256 "08c75dbdc11ec42da2bccba999b6687b1666960789cac86b66189426121dbd4c"
+  version "2.61"
+  sha256 "6f52119a9529850896fdfc69e401fd5cf68385d5577e3a572747658febabd49a"
 
   url "https://downloads.sourceforge.net/cakebrewjs/cakebrewjs-#{version}-Darwin.dmg"
   name "cakebrewjs"
@@ -23,8 +23,4 @@ cask "cakebrewjs" do
     "~/Library/Preferences/com.electron.cakebrewjs.plist",
     "~/Library/Preferences/com.shemeshg.Cakebrewjs2.plist",
   ]
-
-  caveats do
-    requires_rosetta
-  end
 end
