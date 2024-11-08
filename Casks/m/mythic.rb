@@ -1,6 +1,6 @@
-cask "mythic@alpha" do
-  version "0.3.1"
-  sha256 "b6ca8a014b19730275a97b232a0fecbafc8d868e5a3cdcecd891966d878d9aae"
+cask "mythic" do
+  version "0.4.1"
+  sha256 "cf2caaca287ae6d52929df094935f910c7f84fe6d569bb459925acbbed6e7493"
 
   url "https://github.com/MythicApp/Mythic/releases/download/v#{version}/Mythic.zip",
       verified: "github.com/MythicApp/Mythic/"
