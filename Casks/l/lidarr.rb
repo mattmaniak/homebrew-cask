@@ -1,8 +1,11 @@
 cask "lidarr" do
-  version "2.4.3.4248"
-  sha256 "bad36ef68b2ac7e3f797400d98812c1f0613af5bebd334b43553c0429ebd3ea5"
+  arch arm: "arm64", intel: "x64"
 
-  url "https://github.com/lidarr/Lidarr/releases/download/v#{version}/Lidarr.master.#{version}.osx-app-core-x64.zip",
+  version "2.7.1.4417"
+  sha256 arm:   "48ee2db8327897ef8e75a85f773d30928b0f99aac9be6b104c0922b22d6af243",
+         intel: "af422b823f63cc6921d63ad491e2f09f1cd12b3f3600483df00f627b5f4a6529"
+
+  url "https://github.com/lidarr/Lidarr/releases/download/v#{version}/Lidarr.master.#{version}.osx-app-core-#{arch}.zip",
       verified: "github.com/lidarr/Lidarr/"
   name "Lidarr"
   desc "Looks and smells like Sonarr but made for music"
@@ -18,8 +21,4 @@ cask "lidarr" do
   app "Lidarr.app"
 
   zap trash: "~/.config/Lidarr/"
-
-  caveats do
-    requires_rosetta
-  end
 end

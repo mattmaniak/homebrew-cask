@@ -1,6 +1,6 @@
 cask "pearcleaner" do
-  version "3.8.5"
-  sha256 "4b699860a5e8cf2d577ec923b9e025416a8259f407718537aaffd375163df981"
+  version "3.9.3"
+  sha256 "b1634855f0c29d52b6460059738f3ea4a5067c4ef0ed3734b019e5f096ad1dee"
 
   url "https://github.com/alienator88/Pearcleaner/releases/download/#{version}/Pearcleaner.zip",
       verified: "github.com/alienator88/Pearcleaner/"
@@ -8,6 +8,7 @@ cask "pearcleaner" do
   desc "Utility to uninstall apps and remove leftover files from old/uninstalled apps"
   homepage "https://itsalin.com/appInfo/?id=pearcleaner"
 
+  auto_updates true
   depends_on macos: ">= :ventura"
 
   app "Pearcleaner.app"

@@ -1,9 +1,9 @@
 cask "phpstorm" do
   arch arm: "-aarch64"
 
-  version "2024.2.0.1,242.20224.427"
-  sha256 arm:   "fa6e248516f3936abca873d9c99783d7fc826e36995bd9c0b57b407bf7144463",
-         intel: "4913211a8e2b52407b003f5fab5b268b7211d57df96cc17ae64f87293184698e"
+  version "2024.2.4,242.23726.107"
+  sha256 arm:   "97e795da863c255089913f7417a8551dda3f4f42183e60a7056b38ac7f7bf495",
+         intel: "7cd32005901e31deff4a754108d4282cfa24d43738767c926eb3b837d4915371"
 
   url "https://download.jetbrains.com/webide/PhpStorm-#{version.csv.first}#{arch}.dmg"
   name "JetBrains PhpStorm"
@@ -13,8 +13,12 @@ cask "phpstorm" do
   livecheck do
     url "https://data.services.jetbrains.com/products/releases?code=PS&latest=true&type=release"
     strategy :json do |json|
-      json["PS"].map do |release|
-        "#{release["version"]},#{release["build"]}"
+      json["PS"]&.map do |release|
+        version = release["version"]
+        build = release["build"]
+        next if version.blank? || build.blank?
+
+        "#{version},#{build}"
       end
     end
   end

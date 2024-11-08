@@ -3,12 +3,12 @@ cask "avast-secure-browser" do
   livecheck_arch = on_arch_conditional arm: "-arm"
 
   on_arm do
-    version "127.0.5711.99"
-    sha256 "4d69c737f2e0bc47d106ec13f6b9b315b815e55d1e17e20ece38796101165b8f"
+    version "129.0.5923.101"
+    sha256 "6ff3e9fc6a758a7b4a68fa3bd7ee5b08f1707c0a1481ed4708120c4e3ab0341c"
   end
   on_intel do
-    version "127.0.5732.99"
-    sha256 "420365124f0a85873abb1a0a6fea30f6cf90fcebdbd7447d9b427d3df3a24cdd"
+    version "129.0.5924.101"
+    sha256 "995a2ed4c82d964bfb73ffb197595a4a0a3899ea0a819bfa7d3de95dfe51226c"
   end
 
   url "https://cdn-update.avast.securebrowser.com/browser/mac/#{arch}/#{version}/AvastSecureBrowser.dmg",

@@ -2,12 +2,12 @@ cask "qcad" do
   arch arm: "-arm64"
 
   on_arm do
-    version "3.30.1,12.7-14-qt6"
-    sha256 "8f560dab25a811703175e415ecd260697943d6e9c46401163a7e67a6f46de88f"
+    version "3.31.2,12.7-14-qt6"
+    sha256 "d073ec8aec2b6513b59738fc63808d00eae9c5add3dba240c3f75955b83f51e2"
   end
   on_intel do
-    version "3.30.1,10.14-14"
-    sha256 "264e6e4adc18d07cbee8231c40bde853a8ecc7d4403e0c6bc9a7e4af80bf938c"
+    version "3.31.2,10.14-14"
+    sha256 "eabee7bb1e0dc624ee8820e0eb0491a711fc61e9faff33b60ddb29bc9f34563e"
   end
 
   url "https://www.qcad.org/archives/qcad/qcad-#{version.csv.first}-trial-macos-#{version.csv.second}#{arch}.dmg"
@@ -19,7 +19,7 @@ cask "qcad" do
     url "https://www.qcad.org/en/download"
     regex(/qcad[._-]v?(\d+(?:\.\d+)+)[._-]trial[._-]macos[._-](\d+(?:[._-]\d+)+(?:[._-]qt\d)?)#{arch}\.dmg/i)
     strategy :page_match do |page, regex|
-      page.scan(regex).map { |match| "#{match.first},#{match.second}" }
+      page.scan(regex).map { |match| "#{match[0]},#{match[1]}" }
     end
   end
 

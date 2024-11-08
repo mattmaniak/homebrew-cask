@@ -1,12 +1,11 @@
 cask "ogdesign-eagle" do
   arch arm: "arm64", intel: "x64"
 
-  version "4.0,2"
-  sha256 arm:   "a852b1b927d137bd3f913e72b4f45ae243d94ecbe62d55c8aba231399328ff10",
-         intel: "29a5c91e377acbbc166c1e71c4790540c6d62cd20d05dd0f58c7716d2d5dd64a"
+  version "4.0,5"
+  sha256 arm:   "94932ab5554f04c383ecb6eb94bee24a0388cb9d294ee2e7529503b6f7a192b7",
+         intel: "c5a2e2f654e391fc1d0ca0b918cc81a750d84c731225ce67e0e0c4a26ecf5a11"
 
-  url "https://eaglefile.oss-cn-shenzhen.aliyuncs.com/releases/Eagle-#{version.csv.first}-#{arch}-build#{version.csv.second}.dmg",
-      verified: "eaglefile.oss-cn-shenzhen.aliyuncs.com/releases/"
+  url "https://r2-app.eagle.cool/releases/Eagle-#{version.csv.first}-#{arch}-build#{version.csv.second}.dmg"
   name "Eagle"
   desc "Organise all your reference images in one place"
   homepage "https://eagle.cool/"

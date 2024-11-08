@@ -1,6 +1,6 @@
 cask "foxitreader" do
-  version "2024.2"
-  sha256 "641fa745b6b334691ac3a0e4af6678159e462884d279a713066765bc1ef776a0"
+  version "2024.3"
+  sha256 "bb2e2c6d42dfd3cf105736abe18bfe6134babc3f8e4b251ad54f91b054888c61"
 
   url "https://cdn78.foxitsoftware.com/pub/foxit/reader/desktop/mac/#{version.major}.x/#{version}/FoxitPDFReader#{version.no_dots}.L10N.Setup.pkg",
       verified: "cdn78.foxitsoftware.com/pub/foxit/reader/desktop/mac/"
@@ -10,8 +10,9 @@ cask "foxitreader" do
 
   livecheck do
     url "https://www.foxit.com/downloads/latest.html?product=Foxit-Reader&platform=Mac-OS-X&language=English"
-    strategy :header_match do |headers|
-      match = headers["location"].match(%r{/(\d+\.\d)/FoxitPDFReader(\d+)\.L10N\.Setup\.pkg}i)
+    regex(%r{/(\d+\.\d)/FoxitPDFReader(\d+)\.L10N\.Setup\.pkg}i)
+    strategy :header_match do |headers, regex|
+      match = headers["location"]&.match(regex)
       next if match.blank?
 
       match[1]

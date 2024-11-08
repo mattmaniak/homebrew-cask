@@ -1,16 +1,20 @@
 cask "dcommander" do
-  version "3.9.5.2"
+  version "3.9.6.2"
   sha256 :no_check
 
   url "https://devstorm-apps.com/dc/download.php"
   name "DCommander"
   desc "Two-pane file manager"
-  homepage "https://devstorm-apps.com/dc/"
+  homepage "https://devstorm-apps.com/dcommander/"
 
   livecheck do
-    url "https://devstorm-apps.com/dc/download.php"
-    strategy :header_match do |headers|
-      headers["content-disposition"][/DCommander-(\d+)\.dmg/i, 1].split("", 4).join(".")
+    url :url
+    regex(/DCommander[._-]v?(\d+(?:\.\d+)*)\.dmg/i)
+    strategy :header_match do |headers, regex|
+      match = headers["content-disposition"]&.match(regex)
+      next if match.blank?
+
+      (version = match[1]).include?(".") ? version : version.chars.join(".")
     end
   end
 

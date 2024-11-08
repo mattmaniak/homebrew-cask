@@ -1,6 +1,6 @@
 cask "metasploit" do
-  version "6.4.24,20240823102933"
-  sha256 "c1433ac6fcdd694d00fdb2b9206213e110b641ee0ab1d340d6f52888c8daf79e"
+  version "6.4.36,20241107112941"
+  sha256 "67128ac0adeb437cc1d10950c5aba3efaa2dcd91516a0fcf911b22c8903e21b5"
 
   url "https://osx.metasploit.com/metasploit-framework-#{version.csv.first}-#{version.csv.second}-1rapid7-1.x86_64.pkg"
   name "Metasploit Framework"
@@ -9,8 +9,9 @@ cask "metasploit" do
 
   livecheck do
     url "https://osx.metasploit.com/LATEST"
-    strategy :page_match do |page|
-      match = page.match(/metasploit[._-]framework[._-]v?(\d+(?:\.\d+)+)[._-](\d+).*\.pkg/i)
+    regex(/metasploit[._-]framework[._-]v?(\d+(?:\.\d+)+)[._-](\d+(?:\.git\.\d+\.\h+)?).*\.pkg/i)
+    strategy :page_match do |page, regex|
+      match = page.match(regex)
       next if match.blank?
 
       "#{match[1]},#{match[2]}"

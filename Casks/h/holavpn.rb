@@ -1,6 +1,6 @@
 cask "holavpn" do
-  version "3.2,1.229.350"
-  sha256 "7cf65e7411135ef714ec3efef0b7abb6ec0eb774bafda8a1cad33fd48621d99a"
+  version "3.4,1.231.530"
+  sha256 "a1c28193fdb839412d261e4e368dc5a091e3ace7c15cf95b99524a2c5c71f322"
 
   url "https://cdn4.hola.org/static/HolaVPN2E-#{version.csv.first}-#{version.csv.second}.dmg"
   name "Hola VPN"
@@ -10,7 +10,7 @@ cask "holavpn" do
   livecheck do
     url "https://hola.org/products/desktop"
     regex(/svc[_-]versions.*?"iosmac2e":\s*"(\d+(?:\.\d+)*)".*?"iosmac2e[_-]build":\s*"(\d+(?:\.\d+)*)"/i)
-    strategy :page_match do |page|
+    strategy :page_match do |page, regex|
       page.scan(regex).map { |match| "#{match[0]},#{match[1]}" }
     end
   end

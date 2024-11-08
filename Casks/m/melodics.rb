@@ -1,6 +1,6 @@
 cask "melodics" do
-  version "4.0.2051,E280AFBB-FF38-452A-A05D-4DCF7024B963"
-  sha256 "35b605dd1c204ace70ef58f54ebb8581be918f89a2403fd6a5d9772089b1ede0"
+  version "4.0.2361,0CA2BA6D-1AD7-476B-8179-8674FA749DA7"
+  sha256 "7c7e82d19338fff5317e39c5cea84e0a730cfe96ebced5acb9fb167dd2bdeaf5"
 
   url "https://web-cdn.melodics.com/download/#{version.csv.second}.zip"
   name "Melodics"
@@ -14,7 +14,7 @@ cask "melodics" do
     end
   end
 
-  depends_on macos: ">= :mojave"
+  depends_on macos: ">= :catalina"
 
   app "Melodics.app"
 

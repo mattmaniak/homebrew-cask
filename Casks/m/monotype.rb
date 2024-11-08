@@ -1,15 +1,15 @@
 cask "monotype" do
-  version "7.2.0"
-  sha256 "d16a698a94e05ae4453118281f71242a5b27d9d312f8baba5a42aafae0c23d48"
+  version "7.3.2"
+  sha256 "2b75990d888f21b953c5136159d9782b558c6d7a4059afc92bb009e259839432"
 
-  url "https://monotypeapp.monotype.com/release/#{version.no_dots}/mac/MTFInstaller.zip"
+  url "https://monotypeapp.monotype.com/release/#{version.no_dots}/mac/MTFInstallerMacOS.zip"
   name "Monotype Desktop App"
   desc "Font finder and organiser"
   homepage "https://support.monotype.com/en/articles/7860542-monotype-desktop-app"
 
   livecheck do
     url "https://support.monotype.com/en/articles/8617063-latest-release-notes"
-    regex(/<p>Version\s*v?(\d+(?:\.\d+)+)[ "<]/i)
+    regex(/>Version\s*v?(\d+(?:\.\d+)+)[ "<]/i)
   end
 
   auto_updates true

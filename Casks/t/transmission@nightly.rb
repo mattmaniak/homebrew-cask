@@ -1,19 +1,24 @@
 cask "transmission@nightly" do
-  version :latest
-  sha256 :no_check
+  version "9699,6bf62959b4"
+  sha256 "fcf14a8cbafeae390c4a520b702388d600483cc3a43f334d2cd893e700bd6208"
 
-  url "https://build.transmissionbt.com/job/trunk-mac/lastSuccessfulBuild/artifact/release/" do |page|
-    file_path = page[/href="([^"]+.dmg)"/, 1]
-    URI.join(page.url, file_path)
-  end
+  url "https://build.transmissionbt.com/job/trunk-mac/#{version.csv.first}/artifact/release/Transmission-#{version.csv.second}.dmg"
   name "Transmission"
   desc "Open-source BitTorrent client"
   homepage "https://transmissionbt.com/"
 
+  livecheck do
+    url "https://build.transmissionbt.com/job/trunk-mac/lastSuccessfulBuild/artifact/release/"
+    regex(/>\s*\#(\d+)\s*<.+?href=.*?Transmission[._-](\h+)\.dmg/im)
+    strategy :page_match do |page, regex|
+      page.scan(regex).map { |match| "#{match[0]},#{match[1]}" }
+    end
+  end
+
   deprecate! date: "2025-05-01", because: :unsigned
 
   conflicts_with cask: "transmission"
-  depends_on macos: ">= :mojave"
+  depends_on macos: ">= :big_sur"
 
   app "Transmission.app"
 

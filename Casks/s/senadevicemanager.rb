@@ -1,6 +1,6 @@
 cask "senadevicemanager" do
-  version "4.4.9"
-  sha256 "4c2a4b73f248bb39a940b491b6e3b1a3955fc9782bf90c253fecb61d40ea0d0d"
+  version "4.4.12"
+  sha256 "97b9f94b9f8aa241577910c4a070560613932f59a5ae657752f3241e06439d1c"
 
   url "https://firmware.sena.com/senabluetoothmanager/SENADeviceManagerForMAC-v#{version}.pkg"
   name "Sena Bluetooth Device Manager"
@@ -16,8 +16,14 @@ cask "senadevicemanager" do
 
   pkg "SENADeviceManagerForMAC-v#{version}.pkg"
 
-  uninstall quit:    "com.sena.SenaDeviceManager",
-            pkgutil: "com.sena.SenaDeviceManager"
+  uninstall quit:    [
+              "com.sena.SenaBluetoothDeviceManager",
+              "com.sena.SenaDeviceManager",
+            ],
+            pkgutil: [
+              "com.sena.SenaBluetoothDeviceManager",
+              "com.sena.SenaDeviceManager",
+            ]
 
   zap trash: [
     "~/Library/Caches/com.sena.SenaDeviceManager",

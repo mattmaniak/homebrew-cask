@@ -1,6 +1,6 @@
 cask "connectiq" do
-  version "7.2.1,2024-06-25,7463284e6"
-  sha256 "9543f149febbb57436f9a28ec3f0b08b324cdff05a0866bd6af5c9de1f514f75"
+  version "7.3.1,2024-09-23,df7b5816a"
+  sha256 "6e94a0918a88f9931902919a7a93d555e798e9abb3616f3d26e22fed6eb41f4a"
 
   url "https://developer.garmin.com/downloads/connect-iq/sdks/connectiq-sdk-mac-#{version.tr(",", "-")}.dmg"
   name "Garmin Connect IQ SDK"
@@ -10,8 +10,13 @@ cask "connectiq" do
   livecheck do
     url "https://developer.garmin.com/downloads/connect-iq/sdks/sdks.json"
     regex(/connectiq-sdk-mac[._-]v?(\d+(?:\.\d+)+)[._-](\d+(?:-\d+)+)[._-](\h+)\.dmg/i)
-    strategy :page_match do |page, regex|
-      page.scan(regex).map { |match| "#{match[0]},#{match[1]},#{match[2]}" }
+    strategy :json do |json, regex|
+      json.map do |item|
+        match = item["mac"]&.match(regex)
+        next if match.blank?
+
+        "#{match[1]},#{match[2]},#{match[3]}"
+      end
     end
   end
 

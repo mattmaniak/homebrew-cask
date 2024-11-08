@@ -1,8 +1,11 @@
 cask "frappe-books" do
-  version "0.21.2"
-  sha256 "9fd0a360f35d9c0745ca43b459d133b7da555122005499a8372eb6fa90719723"
+  arch arm: "-arm64"
 
-  url "https://github.com/frappe/books/releases/download/v#{version}/Frappe-Books-#{version}.dmg",
+  version "0.24.0"
+  sha256 arm:   "3b504151b043afdf696710071e9a1a6c82bad5054c7553de8f51d927dd008496",
+         intel: "9ac8579aefeb240c720f515edd70d981c8f002dba7a91eadcd43cf675d32ab81"
+
+  url "https://github.com/frappe/books/releases/download/v#{version}/Frappe-Books-#{version}#{arch}.dmg",
       verified: "github.com/frappe/books/"
   name "Frappe Books"
   desc "Book-keeping software for small businesses and freelancers"
@@ -13,6 +16,8 @@ cask "frappe-books" do
     strategy :github_latest
   end
 
+  depends_on macos: ">= :high_sierra"
+
   app "Frappe Books.app"
 
   zap trash: [
@@ -20,8 +25,4 @@ cask "frappe-books" do
     "~/Library/Preferences/io.frappe.books.plist",
     "~/Library/Saved Application State/io.frappe.books.savedState",
   ]
-
-  caveats do
-    requires_rosetta
-  end
 end

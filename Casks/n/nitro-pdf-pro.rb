@@ -1,15 +1,15 @@
 cask "nitro-pdf-pro" do
-  version "13.3.1"
-  sha256 "f8838b72ae3821466d2f5a2cdd27c71305ecb3cf35dcfa13d52f6de954c24e69"
+  version "14.5"
+  sha256 "90cccbcfd56675f298f630e2314152af33699ea6e7e80f31036f641449a7c2ed"
 
-  url "https://downloads.gonitro.com/macos/Nitro%20PDF%20Pro%20Retail_#{version}.dmg"
+  url "https://downloads.gonitro.com/macos/Nitro%20PDF%20Pro_#{version}.dmg"
   name "Nitro PDF Pro"
   desc "PDF editing software"
   homepage "https://www.gonitro.com/pdfpen"
 
   livecheck do
-    url "https://www.gonitro.com/pro/try/mac/download/thanks"
-    regex(/href=.*?Retail[._-]v?(\d+(?:\.\d+)+)\.dmg/i)
+    url "https://www.gonitro.com/product-details/downloads/mac"
+    regex(/href=.*Nitro%20PDF%20Pro[._-]v?(\d+(?:\.\d+)+)\.dmg/i)
   end
 
   depends_on macos: ">= :mojave"

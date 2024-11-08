@@ -1,6 +1,6 @@
 cask "cahier" do
-  version "0.8.0"
-  sha256 "0a197c0c626f3fa3aefdb8d97c674d640177e69d5c3ec397bac24df323989501"
+  version "0.9.0"
+  sha256 "ef0606ca93bbf8f5b53fe4ba8c88a620f371f8004614e3b75501d75b838cdc36"
 
   url "https://getcahier.com/releases-macos/cahier-#{version}.dmg"
   name "Cahier"

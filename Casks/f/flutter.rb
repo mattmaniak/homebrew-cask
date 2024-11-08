@@ -1,9 +1,9 @@
 cask "flutter" do
   arch arm: "_arm64"
 
-  version "3.24.1"
-  sha256 arm:   "6ad307c7d780ff5003f205687892abb7c0b4d06b07be85b20d347aa006fadb9b",
-         intel: "8475e6b64c0f4847a6285476d3b3fcb6bd972915d1eadef58ff769bfad86166f"
+  version "3.24.4"
+  sha256 arm:   "4a87c4b8ccc330a12f4921fd458ef1ab9c24af72621d0cbbf3e651cf9ac36246",
+         intel: "7fe3afdcbd374baa3ca4eaeba677cdae74ba91b4ed414a5833b7b7e908b394df"
 
   url "https://storage.googleapis.com/flutter_infra_release/releases/stable/macos/flutter_macos#{arch}_#{version}-stable.zip",
       verified: "storage.googleapis.com/flutter_infra_release/releases/stable/macos/"
@@ -13,21 +13,20 @@ cask "flutter" do
 
   livecheck do
     url "https://storage.googleapis.com/flutter_infra_release/releases/releases_macos.json"
-    regex(%r{/flutter[._-]macos[._-]v?(\d+(?:\.\d+)+)[._-]stable\.zip}i)
+    strategy :json do |json|
+      json["releases"]&.map do |release|
+        next if release["channel"] != "stable"
+
+        release["version"]
+      end
+    end
   end
 
   auto_updates true
 
   binary "flutter/bin/dart"
   binary "flutter/bin/flutter"
-
-  postflight do
-    FileUtils.ln_sf("#{staged_path}/flutter", "#{HOMEBREW_PREFIX}/share/flutter")
-  end
-
-  uninstall_postflight do
-    FileUtils.rm("#{HOMEBREW_PREFIX}/share/flutter")
-  end
+  binary "flutter", target: "#{HOMEBREW_PREFIX}/share/flutter"
 
   zap trash: "~/.flutter"
 end

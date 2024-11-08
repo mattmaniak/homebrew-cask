@@ -1,11 +1,11 @@
-cask "superproductivity" do
-  arch arm: "-arm64"
+cask "super-productivity" do
+  arch arm: "arm64", intel: "x64"
 
-  version "9.0.7"
-  sha256 arm:   "e119d9730505a802f15c6b335b527beacf14afe103d4232ee8940f402c3b1832",
-         intel: "329a45a4886f3cb85144d725e3b8345d3d0aeaa7b88e5a045b1bb231cffc874a"
+  version "10.1.1"
+  sha256 arm:   "f44b6325cdfc32f85392ab93b56abf4884de01f5b17f1ad99c997ce4cdb07188",
+         intel: "2a43adcf947ca41680de5110c6ed2864adbc5247e194afbc83f86f766f41e530"
 
-  url "https://github.com/johannesjo/super-productivity/releases/download/v#{version}/superProductivity-#{version}#{arch}.dmg",
+  url "https://github.com/johannesjo/super-productivity/releases/download/v#{version}/superProductivity-#{arch}.dmg",
       verified: "github.com/johannesjo/super-productivity/"
   name "Super Productivity"
   desc "To-do list and time tracker"
@@ -16,7 +16,7 @@ cask "superproductivity" do
     strategy :github_latest
   end
 
-  app "superProductivity.app"
+  app "Super Productivity.app"
 
   zap trash: [
     "~/Library/Application Support/superProductivity",

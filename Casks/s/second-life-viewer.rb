@@ -1,6 +1,6 @@
 cask "second-life-viewer" do
-  version "7.1.8.9375512768"
-  sha256 "a8c6b5460ebbafb55b101c3ac486fb36ff9a9ebdd3fddbb4631af081f216d6da"
+  version "7.1.10.10800445603"
+  sha256 "d671a62d8d349836f4c6666f9865680ebf4d335783e48d7159cf3b26ba96aa35"
 
   url "http://download.cloud.secondlife.com/Viewer_#{version.major}/Second_Life_#{version.dots_to_underscores}_x86_64.dmg"
   name "Linden Lab Second Life Viewer"

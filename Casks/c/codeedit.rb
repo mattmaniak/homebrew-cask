@@ -1,6 +1,6 @@
 cask "codeedit" do
-  version "0.3.0"
-  sha256 "e78057065027043328e5aead2c62b7ae417d7efd31688562fe5cc88de1978032"
+  version "0.3.2"
+  sha256 "71119dfe8f81b863d82526963674597b5740fa794a2e27b9ca5b75798af65d31"
 
   url "https://github.com/CodeEditApp/CodeEdit/releases/download/v#{version}/CodeEdit.dmg",
       verified: "github.com/CodeEditApp/CodeEdit/"
@@ -8,6 +8,7 @@ cask "codeedit" do
   desc "Code editor"
   homepage "https://www.codeedit.app/"
 
+  auto_updates true
   depends_on macos: ">= :ventura"
 
   app "CodeEdit.app"

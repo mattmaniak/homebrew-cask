@@ -1,9 +1,9 @@
 cask "docker" do
   arch arm: "arm64", intel: "amd64"
 
-  version "4.33.0,160616"
-  sha256 arm:   "33070a04c96d8778fd7aaa6f06b4b656b6d9cad243f6db7111b4aa560f6dedc4",
-         intel: "2b74ad908f9ad7b6472df72f920fe71a9eb955d5537c027a79b3a22402b9d37d"
+  version "4.35.1,173168"
+  sha256 arm:   "4ad9fe3cb7aabdb2cdda2d10009027458fd98989163a4b27765b39c8fdd59cad",
+         intel: "2bf3ecc99f651de6fd3285bfdb192416354fccea50220797fb2ea9cd5c8e4260"
 
   on_intel do
     binary "Docker.app/Contents/Resources/bin/com.docker.hyperkit",
@@ -47,8 +47,6 @@ cask "docker" do
          target: "/usr/local/bin/docker-credential-ecr-login"
   binary "#{appdir}/Docker.app/Contents/Resources/bin/docker-credential-osxkeychain",
          target: "/usr/local/bin/docker-credential-osxkeychain"
-  binary "#{appdir}/Docker.app/Contents/Resources/bin/docker-index",
-         target: "/usr/local/bin/docker-index"
   binary "#{appdir}/Docker.app/Contents/Resources/bin/hub-tool",
          target: "/usr/local/bin/hub-tool"
   binary "#{appdir}/Docker.app/Contents/Resources/bin/kubectl",

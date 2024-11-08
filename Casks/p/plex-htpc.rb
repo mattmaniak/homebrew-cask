@@ -1,6 +1,6 @@
 cask "plex-htpc" do
-  version "1.66.1.215,6343cfaf"
-  sha256 "91e57aa054afd66bc01230949f262e355cb27c043f7593283d04d14ac70d5825"
+  version "1.67.1.233,0ab7ab17"
+  sha256 "19accbc5661c7e561851779b8a6736783b1e990742bd72bc10a4dac5d06febe5"
 
   url "https://downloads.plex.tv/htpc/#{version.csv.first}-#{version.csv.second}/macos/PlexHTPC-#{version.csv.first}-#{version.csv.second}-universal.zip"
   name "Plex HTPC"
@@ -9,9 +9,8 @@ cask "plex-htpc" do
 
   livecheck do
     url "https://plex.tv/api/downloads/7.json"
-    regex(/"version"\s*:\s*"(\d(?:\.\d+)*)-([a-f0-9]{8})"/i)
-    strategy :page_match do |page, regex|
-      page.scan(regex).map { |match| "#{match[0]},#{match[1]}" }
+    strategy :json do |json|
+      json.dig("computer", "MacOS", "version")&.tr("-", ",")
     end
   end
 

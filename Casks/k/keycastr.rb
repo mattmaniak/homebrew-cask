@@ -1,6 +1,6 @@
 cask "keycastr" do
-  version "0.9.18"
-  sha256 "ab5d9cfd6d321a854bfb0c7e4ff81a7afc763f45f072fd1ad0532fedb29f5271"
+  version "0.10.1"
+  sha256 "11afd0b5888cec9d867394fc33e5a2cd206b826849f8d5b87ab9f6039f209549"
 
   url "https://github.com/keycastr/keycastr/releases/download/v#{version}/KeyCastr.app.zip"
   name "KeyCastr"

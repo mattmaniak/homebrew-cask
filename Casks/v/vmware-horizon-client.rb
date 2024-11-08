@@ -1,6 +1,6 @@
 cask "vmware-horizon-client" do
-  version "2406-8.13.0-10025792799,CART25FQ2_MAC_2406"
-  sha256 "a32b8267517590e35590436c1964c3c3a499f41778758a2249faf7ff8245e352"
+  version "2406.1-8.13.1-11490701655,CART25FQ2_MAC_2406.1"
+  sha256 "604108cd3cef06cb41db2583e47aa6b9a6448480788aa7de50b4cc9e9d2f3ee0"
 
   url "https://download3.omnissa.com/software/#{version.csv.second}/VMware-Horizon-Client-#{version.csv.first}.dmg",
       verified: "download3.omnissa.com/software/"
@@ -11,7 +11,7 @@ cask "vmware-horizon-client" do
   livecheck do
     url "https://customerconnect.omnissa.com/channel/public/api/v1.0/products/getRelatedDLGList?locale=en_US&category=desktop_end_user_computing&product=vmware_horizon_clients&version=horizon_8&dlgType=PRODUCT_BINARY"
     regex(%r{/([^/]+)/VMware[._-]Horizon[._-]Client[._-]v?(\d+(?:[.-]\d+)+)\.dmg}i)
-    strategy :json do |json|
+    strategy :json do |json, regex|
       mac_json_info = json["dlgEditionsLists"]&.select { |item| item["name"].match(/mac/i) }&.first
       api_item = mac_json_info["dlgList"]&.first
       next if api_item.blank?
@@ -42,6 +42,7 @@ cask "vmware-horizon-client" do
               "com.vmware.deemd",
               "com.vmware.horizon.CDSHelper",
               "com.vmware.vmwetlm",
+              "com.vmware.vmwetlmu",
             ],
             quit:      "com.vmware.horizon",
             pkgutil:   [

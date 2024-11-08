@@ -1,9 +1,9 @@
 cask "tencent-docs" do
   arch arm: "arm64", intel: "x64"
 
-  version "3.6.1"
-  sha256 arm:   "0fd634b276dfc1c48c1637303ef2a36f98a7668e699bbe00df269eac63156c36",
-         intel: "159ce7c5488518ab38139734673cc8704c1f984a44e3df799f9dff43b76b95d2"
+  version "3.8.10"
+  sha256 arm:   "2d493cd30e7ce6f3987f2683505f35a602f279a41744623e027d8cf0dcec34d3",
+         intel: "fa2bb7276e5292c5a4088fa190a28794eb39bed74a0044ab4ec898548fae142f"
 
   url "https://desktop.docs.qq.com/Installer/30001/#{version}/TencentDocs-#{arch}.dmg"
   name "Tencent Docs"
@@ -13,7 +13,10 @@ cask "tencent-docs" do
 
   livecheck do
     url "https://docs.qq.com/api/package/update"
-    regex(/"version.*?(\d+(?:\.\d+)+)[\\ "]/i)
+    strategy :json do |json|
+      info_json = Homebrew::Livecheck::Strategy::Json.parse_json(json.dig("result", "update_info").to_s)
+      info_json["version"]
+    end
   end
 
   auto_updates true

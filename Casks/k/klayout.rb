@@ -34,8 +34,8 @@ cask "klayout" do
     end
   end
   on_ventura do
-    version "0.29.6"
-    sha256 "6707196eeccb223103d8710294b30af4e1b9ae67a66cbfedb3613389f9f96998"
+    version "0.29.8"
+    sha256 "7e3d8819e76855f8f0e6ce3adee87bb23ddc7f9e12cea3b6b9b14770a05d124a"
 
     url "https://www.klayout.org/downloads/MacOS/HW-klayout-#{version}-macOS-Ventura-1-qt5MP-RsysPhb311.dmg",
         verified: "klayout.org/downloads/MacOS/"
@@ -46,8 +46,8 @@ cask "klayout" do
     end
   end
   on_sonoma :or_newer do
-    version "0.29.6"
-    sha256 "090d93286a1b1c8df53264ba2ffb914dda5e1a3d1386478bdf7a1eb1f6f33dea"
+    version "0.29.8"
+    sha256 "307ba0d3f21102b03f38332067653977af4481eb7a6ec7f5ebdabb4ea9508726"
 
     url "https://www.klayout.org/downloads/MacOS/HW-klayout-#{version}-macOS-Sonoma-1-qt5MP-RsysPhb311.dmg",
         verified: "klayout.org/downloads/MacOS/"

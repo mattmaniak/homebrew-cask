@@ -1,6 +1,6 @@
 cask "postico" do
-  version "2.1.1,9692"
-  sha256 "e9736618ea8ab811da637303dc776da1348ff8d827ccb2a030ebc572fb0a6571"
+  version "2.1.2,9702"
+  sha256 "97bad62e1e7bf254f85e52e78ede5dc194f6e3f4ce52175a6bdec052bd52972f"
 
   url "https://downloads.eggerapps.at/postico/postico-#{version.csv.second}.dmg"
   name "Postico"
@@ -8,12 +8,8 @@ cask "postico" do
   homepage "https://eggerapps.at/postico#{version.major}/"
 
   livecheck do
-    url "https://releases.eggerapps.at/postico2/changelog"
-    strategy :page_match do |page|
-      v = page[/["']>\n*?(\d+(?:\.\d+)+)/i, 1]
-      build = page[/Build\s+(\d+)</, 1]
-      "#{v},#{build}" if v && build
-    end
+    url "https://releases.eggerapps.at/postico#{version.major}/appcast.xml?update_channel=2"
+    strategy :sparkle
   end
 
   auto_updates true

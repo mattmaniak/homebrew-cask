@@ -1,9 +1,9 @@
 cask "wavebox" do
   arch arm: "macarm64", intel: "mac"
 
-  version "10.128.3.2"
-  sha256 arm:   "61a91017d52cd6d2c3b8257b1c4208ab900f3d20d7bd5b075799f00d49b81182",
-         intel: "fc8c48c1985cbb0563ff4a93cdf847b609c3e4823e5cb30571f9adff5d04ba25"
+  version "10.130.3.2"
+  sha256 arm:   "50f3e6a8591f72c3d6085bdaeb045c4c8e084fec4669d50233a8b62f70f03959",
+         intel: "fe5118ce1eac637f50c1f5d13308742b6a356f83264a34beed105c4aaf3fa8cf"
 
   url "https://download.wavebox.app/stable/#{arch}/Install%20Wavebox%20#{version}.dmg",
       verified: "download.wavebox.app/"

@@ -1,6 +1,6 @@
 cask "sunvox" do
-  version "2.1.1c"
-  sha256 "2df050fdfd97ef96dca8ba77f5cdad75a4a50e6f84ef7194bc1ebc5c5aa289cc"
+  version "2.1.2"
+  sha256 "5dfd1aa368cd34c2abdb234952c7ba9a44d99d03d67476db5d809227e3f70344"
 
   url "https://www.warmplace.ru/soft/sunvox/sunvox-#{version}.zip"
   name "SunVox"
@@ -15,4 +15,11 @@ cask "sunvox" do
   depends_on macos: ">= :high_sierra"
 
   app "sunvox/sunvox/macos/SunVox.app"
+
+  zap trash: [
+    "/Applications/sunvox_log.txt",
+    "~/Library/Application Support/SunVox",
+    "~/Library/Preferences/nightradio.SunVox.plist",
+    "~/Library/Saved Application State/nightradio.SunVox.savedState",
+  ]
 end

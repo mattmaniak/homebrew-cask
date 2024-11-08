@@ -1,5 +1,5 @@
 cask "ea" do
-  version "13.280.0.5793"
+  version "13.335.0.5848"
   sha256 :no_check
 
   url "https://origin-a.akamaihd.net/EA-Desktop-Client-Download/installer-releases/EA%20app.dmg",
@@ -9,8 +9,10 @@ cask "ea" do
   homepage "https://www.ea.com/ea-app"
 
   livecheck do
-    url :url
-    strategy :extract_plist
+    url "https://autopatch.juno.ea.com/autopatch/upgrade/buckets/999"
+    strategy :json do |json|
+      json.dig("recommended", "version")
+    end
   end
 
   auto_updates true

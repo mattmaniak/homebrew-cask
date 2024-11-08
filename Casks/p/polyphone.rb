@@ -1,15 +1,16 @@
 cask "polyphone" do
-  version "2.3.1,84"
-  sha256 "46d3abf42f88cc157d7f2d751619d7c599789ebef65b2d31f5873342f1184e9d"
+  version "2.4.1,109"
+  sha256 "2cb3e037333cb3307df408eb1b77bd4b8df1da5d97a476985fcca5cd63ed898b"
 
-  url "https://www.polyphone.io/download/0/v#{version.csv.second}/polyphone_#{version.csv.first}.dmg"
+  url "https://www.polyphone.io/download/0/v#{version.csv.second}/Polyphone-MacOS_11.0-#{version.csv.first}.dmg",
+      user_agent: :browser
   name "Polyphone"
   desc "Soundfont editor for quickly designing musical instruments"
   homepage "https://www.polyphone.io/en"
 
   livecheck do
     url "https://www.polyphone.io/en/software"
-    regex(/Polyphone\s+(\d+(?:\.\d+)+).*download&file_id=(\d+).*Mac OS X/im)
+    regex(/Polyphone\s+(\d+(?:\.\d+)+).*download\?file_id=(\d+).*Mac OS \(/im)
     strategy :page_match do |page, regex|
       match = page.match(regex)
       next if match.blank?

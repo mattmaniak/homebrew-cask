@@ -1,6 +1,6 @@
 cask "preform" do
-  version "3.39.0,392_72842"
-  sha256 "01c647eafebf4e85e696493e7a7493a3b9e3db6295ca09de7f14690ce0c3863a"
+  version "3.42.0,443_81787"
+  sha256 "0c9a15c47ddbc75b2fad7c706a83a16f633662f88c7700161ff72d1fdb15d8af"
 
   url "https://downloads.formlabs.com/PreForm/Release/#{version.csv.first}/PreForm_mac_#{version.csv.first}_release_releaser_#{version.csv.second}.dmg"
   name "PreForm"
@@ -9,7 +9,7 @@ cask "preform" do
 
   livecheck do
     url "https://formlabs.com/download-preform-mac/"
-    regex(%r{/PreForm_mac_(\d+(?:\.\d+)+)_release_releaser_(\d+(?:[._-]\d+)+)\.dmg}i)
+    regex(%r{/PreForm[._-]mac[._-]v?(\d+(?:\.\d+)+)[._-]release[._-]releaser[._-](\d+(?:[._-]\d+)+)\.dmg}i)
     strategy :page_match do |page, regex|
       page.scan(regex).map { |match| "#{match[0]},#{match[1]}" }
     end

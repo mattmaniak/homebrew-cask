@@ -2,9 +2,9 @@ cask "brave-browser@nightly" do
   arch arm: "arm64", intel: "x64"
   folder = on_arch_conditional arm: "nightly-arm64", intel: "nightly"
 
-  version "1.71.24.0"
-  sha256 arm:   "c1629b7820afb8221ee1c00bce58116cb8dc27603e01525df8b24730d86a6836",
-         intel: "98f61612371cb77902ac99de2f1fa973a902170a6267e17091cbd4ca2ac2c033"
+  version "1.73.63.0"
+  sha256 arm:   "636b9e3678741f045956c7ba5f39077eafb20b3b8c4a0ec6d26ea8565661366d",
+         intel: "e813640b6d7d10e2820d71467abd925e2692f5e5125dab9de088abaf815398bf"
 
   url "https://updates-cdn.bravesoftware.com/sparkle/Brave-Browser/#{folder}/#{version.major_minor_patch.sub(".", "")}/Brave-Browser-Nightly-#{arch}.dmg",
       verified: "updates-cdn.bravesoftware.com/sparkle/Brave-Browser/"
@@ -18,13 +18,20 @@ cask "brave-browser@nightly" do
   end
 
   auto_updates true
-  depends_on macos: ">= :catalina"
+  depends_on macos: ">= :big_sur"
 
   app "Brave Browser Nightly.app"
 
   zap trash: [
-    "~/Library/Application Support/brave",
-    "~/Library/Preferences/com.electron.brave.plist",
-    "~/Library/Saved Application State/com.electron.brave.savedState",
-  ]
+        "~/Library/Application Support/BraveSoftware/Brave-Browser-Nightly",
+        "~/Library/Caches/BraveSoftware/Brave-Browser-Nightly",
+        "~/Library/Caches/com.brave.Browser.nightly",
+        "~/Library/HTTPStorages/com.brave.Browser.nightly",
+        "~/Library/Preferences/com.brave.Browser.nightly.plist",
+        "~/Library/Saved Application State/com.brave.Browser.nightly.savedState",
+      ],
+      rmdir: [
+        "~/Library/Application Support/BraveSoftware",
+        "~/Library/Caches/BraveSoftware",
+      ]
 end

@@ -1,6 +1,6 @@
 cask "touchosc" do
-  version "1.3.4,209"
-  sha256 "88f68572f6eadfe0b1edeed2c8ced870b1c8b4c8b0a7a055b55a02000a27c1a9"
+  version "1.3.6,216"
+  sha256 "1f2d0724f18d78108a931e13ad06a54ce0f762ef38adcc29231061d9645f311e"
 
   url "https://hexler.net/pub/touchosc/touchosc-#{version.csv.first}.#{version.csv.second}-macos.dmg"
   name "touchosc"

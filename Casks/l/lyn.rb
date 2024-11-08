@@ -1,6 +1,6 @@
 cask "lyn" do
-  version "2.4"
-  sha256 "0d52a48a636b2adc80cbac166af85af1d2c2be06c055333ee80d3d89f10be8e1"
+  version "2.4.2"
+  sha256 "9144f515aa04bafd6a212a20a1b2b7a8b27e6e781656363e6aeb7012965be007"
 
   url "https://www.lynapp.com/downloads/Lyn-#{version}.dmg"
   name "Lyn"
@@ -9,7 +9,7 @@ cask "lyn" do
 
   livecheck do
     url :homepage
-    regex(%r{href=.*?/Lyn[-_.]?v?(\d+(?:\.\d+)+)\.dmg}i)
+    regex(%r{href=.*?/Lyn[._-]?v?(\d+(?:\.\d+)+)\.dmg}i)
   end
 
   depends_on macos: ">= :high_sierra"

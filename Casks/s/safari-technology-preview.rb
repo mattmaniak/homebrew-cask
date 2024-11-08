@@ -1,13 +1,13 @@
 cask "safari-technology-preview" do
   # when adjusting the on_{os} scoping, also update the livecheck regex
   on_sonoma :or_older do
-    version "201,062-54079-20240814-ccbf7c3b-e910-419c-8750-697b8db409c9"
-    sha256 "e0ff2dbcf6c341d291aae65ae84768a6e31e84296e66de1c0863a1a9dd220b31"
+    version "206,072-08950-20241023-188851ED-4122-4C48-8CD5-D051028E72E3"
+    sha256 "0920435cbfb9b6704da39dffe10114403b8807dc3d389ba9da88f547f954eb41"
 
     livecheck do
       url :homepage
       regex(%r{
-        href=.*?/([^/]+)/Safari(?:%20)?Technology(?:%20)?Preview\.dmg
+        href=.*?/([^/]+)/Safari(?:%20|\+)?Technology(?:%20|\+)?Preview\.dmg
         .*?macOS(?:\s|&nbsp;)*14[\s.<]
       }ix)
       strategy :page_match do |page, regex|
@@ -18,13 +18,13 @@ cask "safari-technology-preview" do
     end
   end
   on_sequoia :or_newer do
-    version "201,062-53159-20240814-fa4294b2-b705-4091-957c-9924d2525397"
-    sha256 "e4b093a4e7d006620fec12589262c249be498ba4c94345a6d9e81cf5bd418dce"
+    version "206,072-08948-20241023-DC27D632-2694-4EB3-932A-C6977DFBB776"
+    sha256 "ffb7a65d1ad75198852b91b28560b3df76a3f26aec47120ecea7d54b118056de"
 
     livecheck do
       url :homepage
       regex(%r{
-        href=.*?/([^/]+)/Safari(?:%20)?Technology(?:%20)?Preview\.dmg
+        href=.*?/([^/]+)/Safari(?:%20|\+)?Technology(?:%20|\+)?Preview\.dmg
         .*?macOS(?:\s|&nbsp;)*15[\s.<]
       }ix)
       strategy :page_match do |page, regex|

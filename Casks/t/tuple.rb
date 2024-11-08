@@ -1,6 +1,6 @@
 cask "tuple" do
-  version "0.119.6,2024-08-21,38369531d"
-  sha256 "2730bcbe77b8ab9fab7382df62771523a60f73662b8f61cfef09ab8157550e94"
+  version "1.119.17,2024-11-07,60e051201"
+  sha256 "fe57f1006012ca48579269400d58898a0c44f6517fcdd7aeb5b83b84fb4b11ed"
 
   url "https://d32ifkf9k9ezcg.cloudfront.net/production/sparkle/tuple-#{version.tr(",", "-")}.zip",
       verified: "d32ifkf9k9ezcg.cloudfront.net/"
@@ -10,8 +10,9 @@ cask "tuple" do
 
   livecheck do
     url "https://d32ifkf9k9ezcg.cloudfront.net/production/sparkle/appcast.xml"
-    strategy :sparkle do |item|
-      match = item.version.match(/^v?(\d+(?:\.\d+)+)[._-](\d+(?:-\d+)+)[._-](\h+)$/i)
+    regex(/^v?(\d+(?:\.\d+)+)[._-](\d+(?:-\d+)+)[._-](\h+)$/i)
+    strategy :sparkle do |item, regex|
+      match = item.version.match(regex)
       next if match.blank?
 
       "#{match[1]},#{match[2]},#{match[3]}"

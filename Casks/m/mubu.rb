@@ -1,16 +1,21 @@
 cask "mubu" do
-  version "4.0.4"
-  sha256 "55a0e49e41a674a356e67c498b8672cc63e92748f955085b0340d92bacf3deb2"
+  arch arm: "-arm64"
 
-  url "https://mubu-assets.tos-cn-shanghai.volces.com/client/Mubu-#{version}.dmg",
+  version "4.0.6"
+  sha256 arm:   "e0d8893476a653afbbb4be8f9f6235490ae83e3a2a619d7c63c1ed76c250a0b9",
+         intel: "ee0f1acc1cbdc73299e41ebdb054a7c61544f83cb810dcecb3094b5c3534f10b"
+
+  url "https://mubu-assets.tos-cn-shanghai.volces.com/client/Mubu-#{version}#{arch}.dmg",
       verified: "mubu-assets.tos-cn-shanghai.volces.com/client/"
   name "Mubu"
   desc "Outline note taking and management app"
   homepage "https://mubu.com/"
 
   livecheck do
-    url "https://mubu.com/apps"
-    regex(/href=.*?Mubu[._-]v?(\d+(?:\.\d+)+)\.dmg/i)
+    url "https://api2.mubu.com/v3/api/desktop_client/latest_version"
+    strategy :json do |json|
+      json.dig("data", "mac")
+    end
   end
 
   auto_updates true
@@ -22,8 +27,4 @@ cask "mubu" do
     "~/Library/Preferences/com.mubu.desktop.plist",
     "~/Library/Saved Application State/com.mubu.desktop.savedState",
   ]
-
-  caveats do
-    requires_rosetta
-  end
 end

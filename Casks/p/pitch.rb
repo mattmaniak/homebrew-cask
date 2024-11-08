@@ -1,6 +1,6 @@
 cask "pitch" do
-  version "2.36.0,stable.4,6755579"
-  sha256 "855c118dd46dbdf387fcb7f13439f5262f3f084323e15d23d50ffcf54466493b"
+  version "2.47.0,stable.4,6886359"
+  sha256 "3b30c6ff414087eed1efe115bbde02a8ac355312c6a1e873f55926f4f3e1f4ec"
 
   url "https://desktop-app-builds.pitch.com/Pitch-#{version.csv.first}-#{version.csv.second}-ci#{version.csv.third}.dmg"
   name "Pitch"
@@ -10,8 +10,13 @@ cask "pitch" do
   livecheck do
     url "https://desktop-app-builds.pitch.com/latest-mac.yml"
     regex(/Pitch[._-]v?(\d+(?:\.\d+)+)-([^-]+)-ci(\d+)\.dmg/i)
-    strategy :page_match do |page, regex|
-      page.scan(regex).map { |match| "#{match.first},#{match.second},#{match.third}" }
+    strategy :electron_builder do |yaml, regex|
+      yaml["files"]&.map do |item|
+        match = item["url"]&.match(regex)
+        next if match.blank?
+
+        "#{match[1]},#{match[2]},#{match[3]}"
+      end
     end
   end
 

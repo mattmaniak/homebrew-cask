@@ -2,12 +2,12 @@ cask "feishu" do
   arch arm: "arm64", intel: "x64"
 
   on_arm do
-    version "7.24.4,5eb604e2"
-    sha256 "4b237af260457ad2a75305f8ee0cbc24d7bd6f384894309a2af6314e3af6fcca"
+    version "7.30.9,0c3cc29c"
+    sha256 "d078105ca0a67559b1bfe2af84a4fc60ae06c128595aa6b06ebffc71fb8a4c69"
   end
   on_intel do
-    version "7.24.4,cfa538a4"
-    sha256 "99a1339b1b531743006be6dc490c44a4f144d9dc756a4c082ac4220b29bd5697"
+    version "7.30.9,f5a04364"
+    sha256 "238cf4ff92d129bea633e4f9cde92cf84727ab9295cd236fbf2a6c1623a1e446"
   end
 
   url "https://sf3-cn.feishucdn.com/obj/ee-appcenter/#{version.csv.second}/Feishu-darwin_#{arch}-#{version.csv.first}-signed.dmg",
@@ -19,7 +19,7 @@ cask "feishu" do
   livecheck do
     url "https://www.feishu.cn/api/downloads"
     regex(%r{/(\h+)/Feishu[._-]darwin[._-]#{arch}[._-]v?(\d+(?:\.\d+)+)[._-]signed\.dmg}i)
-    strategy :page_match do |page|
+    strategy :page_match do |page, regex|
       page.scan(regex)
           .map { |match| "#{match[1]},#{match[0]}" }
     end

@@ -1,8 +1,11 @@
 cask "wave" do
-  version "0.7.6"
-  sha256 "6fbe5e42752d790efaefe72b55efa059f05fecfaeb123a0d1554f1f2cfe34d73"
+  arch arm: "arm64", intel: "x64"
 
-  url "https://dl.waveterm.dev/releases/Wave-darwin-universal-#{version}.dmg"
+  version "0.9.1"
+  sha256 arm:   "d2daa48367da811b639ebb3724f350bd90a64f28999071606290f95313bf6059",
+         intel: "da378f18544e3ebdd2c2c54d3298032ea4e4258a8c13294f7e00e1990ea3d507"
+
+  url "https://dl.waveterm.dev/releases-w2/Wave-darwin-#{arch}-#{version}.dmg"
   name "Wave Terminal"
   name "WaveTerm"
   desc "Terminal emulator"

@@ -1,6 +1,6 @@
 cask "cisco-jabber" do
-  version "20240401022744"
-  sha256 "0d2b13e5b353c4b04d11802e043f80d8db594699da17a338a9b17f3fff515fbf"
+  version "20241030094204"
+  sha256 "ede2e21e768136a9499c3b14cb6758ea25647ee12b3a011bc4cd38e3de58754c"
 
   url "https://binaries.webex.com/jabberclientmac/#{version}/Install_Cisco-Jabber-Mac.pkg"
   name "Cisco Jabber"

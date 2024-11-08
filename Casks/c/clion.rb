@@ -1,9 +1,9 @@
 cask "clion" do
   arch arm: "-aarch64"
 
-  version "2024.2.0.1,242.20224.413"
-  sha256 arm:   "92f17a4cad5f027f940e59146fe626c421ad5be585e1f37c0e9879b49e99834e",
-         intel: "3f5c90de4ed523bc090ec6ab7bb199c5609f9dc58146c7c164fc716a4aeca20c"
+  version "2024.2.3,242.23726.125"
+  sha256 arm:   "998d629381e6f596b8e0cf5289fe8ca7cfd3221fc73b6c8548d768889b14196f",
+         intel: "0dfc4d50268e58bb6b3c42c270ea8cca638a8733a5e2e010447cc74d585895e8"
 
   url "https://download.jetbrains.com/cpp/CLion-#{version.csv.first}#{arch}.dmg"
   name "CLion"
@@ -13,8 +13,12 @@ cask "clion" do
   livecheck do
     url "https://data.services.jetbrains.com/products/releases?code=CL&latest=true&type=release"
     strategy :json do |json|
-      json["CL"].map do |release|
-        "#{release["version"]},#{release["build"]}"
+      json["CL"]&.map do |release|
+        version = release["version"]
+        build = release["build"]
+        next if version.blank? || build.blank?
+
+        "#{version},#{build}"
       end
     end
   end

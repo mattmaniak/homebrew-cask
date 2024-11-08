@@ -1,9 +1,9 @@
 cask "portfolioperformance" do
   arch arm: "aarch64", intel: "x86_64"
 
-  version "0.70.3"
-  sha256 arm:   "3530159f9694ba615bb87cd3a46067017f4d819885a030fba356d1d65980370a",
-         intel: "c66bde786a11e775a706aafad1ffd3dde7ec593a8abc3008efd1cb4366892add"
+  version "0.71.2"
+  sha256 arm:   "96968cf307f1d58080b92f46c9b27d44f41dbbf4c01480f6b0b417b04398bce0",
+         intel: "668be2400cc410c37565ad75db047c6929dc28437d25dc7b1778e4c9df128ed1"
 
   url "https://github.com/buchen/portfolio/releases/download/#{version}/PortfolioPerformance-#{version}-#{arch}.dmg",
       verified: "github.com/buchen/portfolio/"

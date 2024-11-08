@@ -1,6 +1,6 @@
 cask "musescore" do
-  version "4.3.2.241630832"
-  sha256 "d61562a8397040a4b2a50c4a68e44469483b40362decec2222e162c89cef0f8d"
+  version "4.4.3.242971445"
+  sha256 "286f6b314bc4dcdcc5f643f3025930ec1230a11348ce37521684e55663d014ef"
 
   url "https://github.com/musescore/MuseScore/releases/download/v#{version.major_minor_patch}/MuseScore-Studio-#{version}.dmg",
       verified: "github.com/musescore/MuseScore/"
@@ -43,8 +43,4 @@ cask "musescore" do
     "~/Library/Preferences/org.musescore.MuseScore*.plist",
     "~/Library/Saved Application State/org.musescore.MuseScore.savedState",
   ]
-
-  caveats do
-    requires_rosetta
-  end
 end

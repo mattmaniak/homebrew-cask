@@ -1,6 +1,6 @@
 cask "ipremoteutility" do
-  version "1.9.5"
-  sha256 "a832a28000356830daafecc3fec4aa18a6dc1bfdaeab84ed1a3113b9cf0ae726"
+  version "1.9.9"
+  sha256 "5c62cc2e48917aada05f646fb73e23ee2da138d59a206231bde0680694f13e42"
 
   url "https://www.flandersscientific.com/ip-remote/release/IPRemoteUtility-#{version}-macOS.zip"
   name "Flanders IP Remote Utility"
@@ -13,6 +13,7 @@ cask "ipremoteutility" do
   end
 
   depends_on macos: ">= :high_sierra"
+  container nested: "IPRemoteUtility-#{version}-macOS/IPRemoteUtility.dmg"
 
   app "IPRemoteUtility.app"
 

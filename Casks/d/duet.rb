@@ -11,18 +11,18 @@ cask "duet" do
     end
   end
   on_big_sur :or_newer do
-    version "3.19.0.0"
-    sha256 "c18e9b6e351798dea3fbb2368a8f68030e32ac7e1cebf6a6640966f1317f3b7f"
+    version "3.20.0.0"
+    sha256 "ed344e691d12d77037d9919b34aaa3aa7ce5fd3fc9c1f9f0b6327f2be67a0720"
 
-    url "https://duetdownload.com/Mac/#{version.major}_x/duet-dd-#{version.dots_to_hyphens}.zip",
+    url "https://duetdownload.com/Mac/#{version.major}_x/duet-dd-#{version.dots_to_hyphens}.dmg",
         verified: "duetdownload.com/Mac/"
 
     livecheck do
       url "https://updates.duetdisplay.com/AppleSilicon"
-      regex(/duet[._-]dd[._-]v?(\d+(?:-\d+)+)\.zip/i)
+      regex(/duet[._-]dd[._-]v?(\d+(?:-\d+)+)\.dmg/i)
       strategy :header_match do |headers, regex|
         headers["location"].scan(regex).map do |match|
-          match[0].tr("-", ".").to_s
+          match[0].tr("-", ".")
         end
       end
     end

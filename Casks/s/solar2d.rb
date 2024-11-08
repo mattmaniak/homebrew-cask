@@ -1,6 +1,6 @@
 cask "solar2d" do
-  version "2024.3709"
-  sha256 "e6c16e0851dc6d280720ab947f1f5c60fbff2f94b8176d084fbd476d7a38e934"
+  version "2024.3711"
+  sha256 "fbc80c998d770bb06fe5a2e7b742cb0e4f6cc69b99a3534b8bab5f3415266301"
 
   url "https://github.com/coronalabs/corona/releases/download/#{version.minor}/Solar2D-macOS-#{version}.dmg",
       verified: "github.com/coronalabs/corona/"

@@ -1,6 +1,6 @@
 cask "arturia-software-center" do
-  version "2.7.2.2631"
-  sha256 "e06f5339aa8f0c3f4cdd0a07b67353da3e359e4cdb5f617f2f5079568185fcc1"
+  version "2.8.1.2731"
+  sha256 "096cbfb361b73d450a2e0349b56d44dcd83d79c89f74f2222a5bd212bc0b05be"
 
   url "https://dl.arturia.net/products/asc/soft/Arturia_Software_Center__#{version.dots_to_underscores}.pkg",
       verified: "dl.arturia.net/"
@@ -18,6 +18,8 @@ cask "arturia-software-center" do
       end
     end
   end
+
+  auto_updates true
 
   pkg "Arturia_Software_Center__#{version.dots_to_underscores}.pkg"
 

@@ -1,8 +1,8 @@
 cask "fl-studio" do
-  version "24.1.1.3936"
-  sha256 "2c417716d7009270386e85c459c138b14377210a56a6b63eab5ab79c53162bc0"
+  version "24.1.2.4074"
+  sha256 "9171e4d1d11311744ab84e96a591d474a80d9fe83e3054682acfdafc21bba36a"
 
-  url "https://install.image-line.com/flstudio/flstudio_mac_#{version}.dmg",
+  url "https://demodownload.image-line.com/flstudio/flstudio_mac_#{version}.dmg",
       referer:    "https://www.image-line.com/fl-studio-download/",
       user_agent: :browser
   name "FL Studio"
@@ -16,9 +16,10 @@ cask "fl-studio" do
   # the URL that the download page uses to fetch version information.
   livecheck do
     url "https://support.image-line.com/api.php?call=get_version_info&callback=il_get_version_info_cb"
-    strategy :page_match do |page|
+    regex(/il_get_version_info_cb\("(.+?)"\);/i)
+    strategy :page_match do |page, regex|
       # Extract the JSON text from the JavaScript
-      match = page.match(/il_get_version_info_cb\("(.+?)"\);/i)
+      match = page.match(regex)
       next if match.blank?
 
       # Unescape the JSON text and parse it

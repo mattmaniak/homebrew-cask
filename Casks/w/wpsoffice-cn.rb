@@ -1,9 +1,9 @@
 cask "wpsoffice-cn" do
   arch arm: "arm64", intel: "x64"
 
-  version "6.10.2,8876"
-  sha256 arm:   "8c6ddbde19e0179de6ef0b375da98f3c5d5b6d3867498c8c7a009c548d815482",
-         intel: "00a2e6cd4daea0d360b6156282e310b1b0864e20fed5329979242155408a03e0"
+  version "6.13.1,8913"
+  sha256 arm:   "4f9dd6502deef3eaf491dd86f7b3a6812faadb1f7db703b97f9829ad4d30e3b2",
+         intel: "7047eed051ec72c24ca921795b5de2e453a8b81b9f854f32b34a8d3f39cf8d5d"
 
   url "https://package.mac.wpscdn.cn/mac_wps_pkg/#{version.csv.first}/WPS_Office_#{version.csv.first}(#{version.csv.second})_#{arch}.dmg",
       verified: "package.mac.wpscdn.cn/mac_wps_pkg/"
@@ -14,7 +14,7 @@ cask "wpsoffice-cn" do
   livecheck do
     url :homepage
     regex(%r{>\s*v?(\d+(?:\.\d+)+)\s*[_\uff08(](\d+)[_\uff09)]\s*/\s*\d+(?:\.\d+)*\s*<}im)
-    strategy :page_match do |page|
+    strategy :page_match do |page, regex|
       page.scan(regex).map { |match| "#{match[0]},#{match[1]}" }
     end
   end

@@ -1,6 +1,6 @@
 cask "nextcloud-vfs" do
-  version "3.13.3"
-  sha256 "2faae45fe31902afaa431be8240503a54e9c4e61ac0db3cb9f7138ce6b8ff0bb"
+  version "3.14.3"
+  sha256 "b052e61805d074d767ad331da137dcec1b70f86a2a6440ef3bced6d3ed5733fd"
 
   url "https://github.com/nextcloud-releases/desktop/releases/download/v#{version}/Nextcloud-#{version}-macOS-vfs.pkg",
       verified: "github.com/nextcloud-releases/desktop/"

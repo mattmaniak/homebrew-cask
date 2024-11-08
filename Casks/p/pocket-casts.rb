@@ -1,6 +1,6 @@
 cask "pocket-casts" do
-  version "2.0.4"
-  sha256 "30869393f2cc2a0bc1384182ffbae164f8ed6472379328f5a745819f59bcfd78"
+  version "2.0.8"
+  sha256 "c1e0178c4cb1f442f8107ef3faf89590d545dcfb54119e8ab6bc45580b1bee5b"
 
   url "https://cdn.a8c-ci.services/pocket-casts-desktop/pocket-casts-desktop-darwin-universal-v#{version}.dmg",
       verified: "cdn.a8c-ci.services/pocket-casts-desktop/"

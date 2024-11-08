@@ -1,6 +1,6 @@
 cask "canon-ufrii-driver" do
-  version "10.19.17"
-  sha256 "2a88985f07ad8de870b750c13826c480c0ded9e982c1678eff43152cc279fab7"
+  version "10.19.19"
+  sha256 "d32c30cc7ccd7cece27ed5e2d7a66da30b144dc3dc5209c9d3d782670aaa083d"
 
   url "https://downloads.canon.com/bicg2024/drivers/UFRII_v#{version}_mac.zip",
       verified: "downloads.canon.com/"
@@ -10,7 +10,15 @@ cask "canon-ufrii-driver" do
 
   livecheck do
     url "https://www.usa.canon.com/bin/canon/support/getsoftwarediver.ds.MACOS_14.39319.All.English.json"
-    regex(/UFRII[._-]v?(\d+(?:\.\d+)+)[._-]Mac/i)
+    regex(/UFRII[._-]v?(\d+(?:\.\d+)+)[._-]mac\.zip/i)
+    strategy :json do |json, regex|
+      json.map do |item|
+        match = item["fileUrl"]&.match(regex)
+        next if match.blank?
+
+        match[1]
+      end
+    end
   end
 
   depends_on macos: ">= :catalina"

@@ -2,9 +2,9 @@ cask "gitbutler" do
   arch arm: "aarch64", intel: "x86_64"
   arch_suffix = on_arch_conditional arm: "aarch64", intel: "x64"
 
-  version "0.12.20,1172"
-  sha256 arm:   "38722fcd344302dd62932120d86f65238de70fd24ac022a779cf2493e5c5dc1e",
-         intel: "6d10fcc9971893db7dbb5ccef3c974fe5b831248f3b612444fce516fdfaa8ad2"
+  version "0.13.12,1449"
+  sha256 arm:   "fde0af486338469eae75e2eaeccecd79b579dc1a06ec1fdf04c588b28b6eccc4",
+         intel: "935930fc1ca7ee498b95e07586de9eb986f26965c4493ceffb5d71df2fd5707f"
 
   url "https://releases.gitbutler.com/releases/release/#{version.csv.first}-#{version.csv.second}/macos/#{arch}/GitButler_#{version.csv.first}_#{arch_suffix}.dmg"
   name "GitButler"
@@ -14,7 +14,7 @@ cask "gitbutler" do
   livecheck do
     url "https://app.gitbutler.com/downloads/release/darwin/#{arch}/dmg"
     regex(%r{/releases/release/(\d+(?:\.\d+)+)[._-](\d+)/macos}i)
-    strategy :header_match do |headers|
+    strategy :header_match do |headers, regex|
       match = headers["location"]&.match(regex)
 
       next if match.blank?

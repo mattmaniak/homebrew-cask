@@ -1,21 +1,25 @@
 cask "yaak" do
   arch arm: "aarch64", intel: "x64"
 
-  version "2024.7.0"
-  sha256 arm:   "eddb287a7e7bc3fa4f576835d24e8f9eb311e25d555384244f1bde3cb5f0c586",
-         intel: "2b01ced6c714471d08dbe9d12d3877c03d4b71594dfb606cf115b4c3a491a691"
+  version "2024.11.5"
+  sha256 arm:   "a64fe592cc2e4400eb365f150d07687e47600f73ed542673075f9e6cac545629",
+         intel: "ef1c8ca1a5abb20b45bac4fa68f872cc24fa0eeefa909b8a078abb11e0457e05"
 
-  url "https://releases.yaak.app/releases/#{version}/Yaak_#{version}_#{arch}.dmg"
+  url "https://github.com/yaakapp/app/releases/download/v#{version}/Yaak_#{version}_#{arch}.dmg",
+      verified: "github.com/yaakapp/app/"
   name "Yaak"
   desc "REST, GraphQL and gRPC client"
   homepage "https://yaak.app/"
 
   livecheck do
-    url "https://yaak.app/download"
-    regex(/href=.*?yaak[._-]v?(\d+(?:\.\d+)+)[._-]#{arch}\.dmg/i)
+    url "https://update.yaak.app/check/darwin/#{arch}/0"
+    strategy :json do |json|
+      json["version"]
+    end
   end
 
-  depends_on macos: ">= :high_sierra"
+  auto_updates true
+  depends_on macos: ">= :ventura"
 
   app "yaak.app"
 

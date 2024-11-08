@@ -1,8 +1,9 @@
 cask "rustrover" do
   arch arm: "-aarch64"
 
-  version "2024.1.8,241.18968.39"
-  sha256 :no_check
+  version "2024.2.5,242.23726.162"
+  sha256 arm:   "f0ccd53e5cd8a0a143db956fbc6d118d3771bc42c62b846e9d396a620bea79d1",
+         intel: "906bc85ada746fd8e783c4fa524458f6cedde7c77499728da8ccae050201a400"
 
   url "https://download.jetbrains.com/rustrover/RustRover-#{version.csv.first}#{arch}.dmg"
   name "RustRover"
@@ -12,8 +13,12 @@ cask "rustrover" do
   livecheck do
     url "https://data.services.jetbrains.com/products/releases?code=RR&latest=true&type=release"
     strategy :json do |json|
-      json["RR"].map do |release|
-        "#{release["version"]},#{release["build"]}"
+      json["RR"]&.map do |release|
+        version = release["version"]
+        build = release["build"]
+        next if version.blank? || build.blank?
+
+        "#{version},#{build}"
       end
     end
   end

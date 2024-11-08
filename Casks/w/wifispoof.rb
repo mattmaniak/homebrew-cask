@@ -1,6 +1,6 @@
 cask "wifispoof" do
-  version "4.0.2"
-  sha256 "8753f536334cbc8db4ed5fb436d4e261de89b2cfe471a4e0a35a68e40f507313"
+  version "4.0.8"
+  sha256 "1a0ef5919c85d7aaa29ba703d4384323f3a470a8d02d5df5bac85d64a4cf6ef3"
 
   url "https://sweetpproductions.com/products/wifispoof#{version.major}/WiFiSpoof.dmg",
       verified: "sweetpproductions.com/products/"

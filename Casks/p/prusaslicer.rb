@@ -1,18 +1,26 @@
 cask "prusaslicer" do
-  version "2.8.0,202406270936"
-  sha256 "42963067a3f2d5d302d237c648d84b64c4320fa0ca5613a29d2a505d7b9e5a49"
+  version "2.8.1"
+  sha256 "8a5e482a67ed674da66b26c84e93f3268e736b07e3ab7df4616c440074597cee"
 
-  url "https://github.com/prusa3d/PrusaSlicer/releases/download/version_#{version.csv.first}/PrusaSlicer-#{version.csv.first}+MacOS-universal-#{version.csv.second}.dmg",
-      verified: "github.com/prusa3d/PrusaSlicer/"
+  url "https://cdn.prusa3d.com/downloads/drivers/prusa3d_mac_#{version.dots_to_underscores}.dmg"
   name "PrusaSlicer"
   desc "G-code generator for 3D printers (RepRap, Makerbot, Ultimaker etc.)"
   homepage "https://www.prusa3d.com/slic3r-prusa-edition/"
 
   livecheck do
-    skip "No reliable way to get version info"
+    url "https://cache.prusa3d.com/help/api/v1/prusa3d_downloads"
+    strategy :json do |json|
+      json["data"]&.map do |item|
+        next if item.dig("meta", "type", "value") != "driver"
+
+        item["title"]
+      end
+    end
   end
 
-  app "PrusaSlicer.app"
+  depends_on macos: ">= :sierra"
+
+  app "Original Prusa Drivers/PrusaSlicer.app"
 
   zap trash: [
     "~/Library/Application Support/PrusaSlicer",

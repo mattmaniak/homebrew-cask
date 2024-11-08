@@ -1,6 +1,6 @@
 cask "cork" do
-  version "1.4.4.2"
-  sha256 "b1b64b87ce202e844397a2f6935e7b5bb2029df21da7b2a30c2a06de1ac6dc67"
+  version "1.4.6.1"
+  sha256 "1299c1815bbae120312b7eaf031feb48bcb1b5f2c21ccde2c445a9323eebd4dc"
 
   url "https://github.com/buresdv/Cork/releases/download/v#{version}/Cork.zip",
       verified: "github.com/buresdv/Cork/"

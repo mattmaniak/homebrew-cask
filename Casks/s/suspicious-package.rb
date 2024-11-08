@@ -50,7 +50,7 @@ cask "suspicious-package" do
     end
   end
   on_monterey :or_newer do
-    version "4.4,1088"
+    version "4.5,1213"
     sha256 :no_check
 
     url "https://www.mothersruin.com/software/downloads/SuspiciousPackage.dmg"
@@ -58,11 +58,11 @@ cask "suspicious-package" do
     livecheck do
       url "https://www.mothersruin.com/software/SuspiciousPackage/data/SuspiciousPackageVersionInfo.plist"
       strategy :xml do |xml|
-        short_version = xml.elements["//key[text()='CFBundleShortVersionString']"]&.next_element&.text&.strip
-        version = xml.elements["//key[text()='CFBundleVersion']"]&.next_element&.text&.strip
+        short_version = xml.elements["//key[text()='CFBundleShortVersionString']"]&.next_element&.text
+        version = xml.elements["//key[text()='CFBundleVersion']"]&.next_element&.text
         next if short_version.blank? || version.blank?
 
-        "#{short_version},#{version}"
+        "#{short_version.strip},#{version.strip}"
       end
     end
   end

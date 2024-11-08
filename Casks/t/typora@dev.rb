@@ -1,6 +1,6 @@
 cask "typora@dev" do
-  version "1.9.2"
-  sha256 "638b294e8fdf4ad1dcd8161af34bafa77b0f2244b568afdd875311ada077d64c"
+  version "1.10.2"
+  sha256 "362870dbf1d62b14acd46cfd39385ae33ed9e110344243d06d28b3374e45d2c6"
 
   language "zh-Hans-CN" do # use official Chinese mirror
     url "https://download2.typoraio.cn/mac/Typora-#{version}-dev.dmg",
@@ -17,7 +17,7 @@ cask "typora@dev" do
   livecheck do
     url "https://typora.io/releases/dev_macos.xml"
     regex(/Typora[._-]v?(\d+(?:\.\d+)+)(?:-dev)\.dmg/i)
-    strategy :sparkle do |item|
+    strategy :sparkle do |item, regex|
       item.url[regex, 1]
     end
   end
